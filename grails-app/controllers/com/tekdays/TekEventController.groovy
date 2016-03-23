@@ -75,4 +75,39 @@ class TekEventController {
 			'*'{ respond tekEventInstance, [status: OK] }
 		}
 	}
+	
+	
+	@Transactional
+	def delete(TekEvent tekEventInstance) {
+		
+		if (tekEventInstance == null) {
+			notFound()
+			return
+		}
+		
+		tekEventInstance.delete flush:true
+		
+		request.withFormat {
+			form {
+				flash.message = message(code: 'default.deleted.message',
+				args: [message(code: 'TekEvent.label', default: 'TekEvent'),
+				tekEventInstance.id])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
+	
+	
+	protected void notFound() {
+		request.withFormat {
+			form {
+				flash.message = message(code: 'default.not.found.message',
+				args: [message(code: 'tekEventInstance.label',
+				default: 'TekEvent'), params.id])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 }
