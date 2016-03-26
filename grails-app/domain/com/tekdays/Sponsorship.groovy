@@ -1,6 +1,7 @@
 package com.tekdays
 
 class Sponsorship {
+	
 	TekEvent event
 	Sponsor sponsor
 	String contributionType

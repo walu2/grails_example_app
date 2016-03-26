@@ -11,17 +11,12 @@ class TekEvent {
 	String description
 	
 	static hasMany = [volunteers: TekUser, 
-					  respondents : String, 
-					  sponsorships : Sponsorship,
-					  tasks : Task,
-					  messags : TekMessage]
+	respondents : String, 
+	sponsorships : Sponsorship,
+	tasks : Task,
+	messags : TekMessage]
 	
-	
-	String toString() { 
-		"$name, $city"
-	}
-
-    static constraints = {
+	static constraints = {
 		name()
 		city()
 		description maxSize: 5000
@@ -33,5 +28,9 @@ class TekEvent {
 		sponsorships nullable: true
 		tasks nullable: true
 		messages nullable: true
-    }
+	}
+	
+	String toString() { 
+		"$name, $city"
+	}
 }
