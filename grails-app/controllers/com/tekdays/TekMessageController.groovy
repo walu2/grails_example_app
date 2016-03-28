@@ -21,9 +21,7 @@ class TekMessageController {
 			list = TekMessage.list(params)
 			count = TekMessage.count()
 		}
-		[tekMessageInstanceList: list,
-		tekMessageInstanceCount: count,
-		event: event]
+		[tekMessageInstanceList: list, tekMessageInstanceCount: count, event: event]
 	}
 
 	def show(TekMessage tekMessage) {
