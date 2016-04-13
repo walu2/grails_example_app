@@ -44,6 +44,7 @@ class TaskController {
             }
             '*' { respond task, [status: CREATED] }
         }
+
     }
 
     def edit(Task task) {
