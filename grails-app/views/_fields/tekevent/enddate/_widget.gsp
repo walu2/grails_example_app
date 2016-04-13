@@ -1,0 +1,1 @@
+<g:datePicker name="endDate" precision="day" value="${tekEvent?.endDate}" years="${2010..2020}" />
